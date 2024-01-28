@@ -1,0 +1,76 @@
+.purple-header {
+    background-color: #4C3672; /* Or use a specific purple color code like #800080 */
+    width: 100%;
+    height: 150px; /* Adjust the height as needed */
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 1;
+  }
+
+.heading {
+    position: fixed;
+    top: 48px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size:x-large;
+    color: aliceblue;
+    font-family: 'Outfit';
+    z-index: 2;
+}  
+
+.text-box {
+    background-color: rgb(240, 237, 237);
+    width: 60%;
+    height: 430px;
+    position: fixed;
+    top: 45.5%; 
+    left: 50%; 
+    transform: translate(-50%, -42%); 
+    z-index: 3;
+    border-radius: 25px;
+    padding-top: 0px; 
+    padding-bottom: 20px; 
+    padding-left: 20px; 
+    padding-right: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .text {
+    font-size: large;
+    color: #4C3672;
+    font-family: 'Outfit';
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .h2 {
+    color:#4C3672;
+  }
+
+  .p {
+    font-family: 'Khula';
+  }
+
+  .contact-button {
+    position: fixed;
+    top: 20%; 
+    left: 55px; 
+    z-index: 5;
+    background-color: white; /* Match the header color or choose another */
+    color: #4C3672;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transform: translateY(-50%); 
+    text-align: center;
+    font-family: 'Outfit'; 
+    font-size: larger;
+}
+
+.contact-button:hover {
+    background-color: #d0cece; 
+}
