@@ -3,8 +3,7 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-        <div>
-            <div className='contact-button'>Contact Us</div>
+        <section className='about'>
             <div className='purple-header'></div>
             <div className="heading"><h1>About Otima</h1></div>
             <div className='text-box'>
@@ -19,7 +18,7 @@ const AboutUs = () => {
                 elit augue pulvinar magna, a consectetur eros quam at risus. Nunc id dui vitae orci porta dapibus in eget dui. Etiam egestas, nulla at varius elementum, 
                 nibh mauris cursus nibh, ut fermentum massa justo sit amet risus.</p>
             </div>
-        </div>
+        </section>
     );
 }
 export default AboutUs
