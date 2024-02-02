@@ -1,17 +1,28 @@
-import './ticket.css'
+import './ticket.css';
+import React, {useState} from 'react';
+import { SERVER } from '../config';
 
 function Ticket({id, message, status, setDropDown, dropDown}){
 
-    function updateStatus(){
+    function updateDropdown(){
         if(dropDown === id){
             setDropDown(null)
         }else{
             setDropDown(id)
         }
+
+        // set new drop down selection
+
+        return
+    }
+
+    function updateStatus(){
+        updateDropdown();
+                
     }
 
     return(
-        <div className="card">
+        <div id={id} className="card">
             <dl className="header">
                 <h2>Ticket ID: {id}</h2>
                 <div onClick={()=>{updateStatus()}} className={status}>
@@ -22,7 +33,6 @@ function Ticket({id, message, status, setDropDown, dropDown}){
                     <div className={dropDown === id?'dropdown':'hide-dropdown'}>
                         <p>Resolve</p>
                         <p>Discard</p>
-
                     </div>
                     
                 </div>

@@ -110,8 +110,9 @@ const personalizedHtml = htmlTemplate.replace('/NAME/', data.firstName);
 
 });
 
+// handle estimator on landing page
 app.post("/api/text", async (req, res) => {
-  const data = req.body.data; // This will contain the JSON data sent in the request
+  const data = req.body.data; 
 
   let selected;
   if(data.selected.length===1){
@@ -340,7 +341,6 @@ app.get("/api/data-request", async (req, res) => {
   // check if session is valid or not
     const sessionID = req.query.session;
     const category = parseInt(req.query.category, 10);
-
     let request = null;
 
     if(category === 0){
@@ -409,9 +409,10 @@ app.get("/api/data-request", async (req, res) => {
       projects: JSON.parse(requestedData.projects)
     };
       
-    }else if(category == 1){
-      formattedResult =  JSON.parse(requestedData.tickets)
-    }else if(category == 2){      
+    }else if(category === 1){
+      formattedResult = requestedData
+
+    }else if(category === 2){      
       formattedResult = requestedData
     }
 
@@ -429,6 +430,24 @@ app.delete("/api/logout", async (req, res) =>{
   return res.json({success: success})
 });
 
+// given ticket return if successfully requested
+app.post("/api/ticket-submition", async (req,res) =>{
+    const sessionID = req.body.sessionID;
+    const message = req.body.message
+
+    const sql = 'CALL Ticket_Submition(?, ?)';
+    const values = [sessionID, message];
+
+    const response = await db.saveData(sql, values);
+
+    if(response.affectedRows > 0){
+      return res.json({success:true})
+    }
+    else{
+      return res.json({success:false})
+    }
+
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

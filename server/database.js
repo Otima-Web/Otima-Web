@@ -53,11 +53,11 @@ function retrieveData(sql) {
         database.query(sql, (err, results) => {
           if (err) {
             console.log(err)
-            resolve(null);
+            resolve([]);
 
           } else {
             if(results.length === 0){
-              resolve(null);
+              resolve([]);
             }else{
               resolve(results[0]);
             }
