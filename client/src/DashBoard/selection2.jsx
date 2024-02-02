@@ -6,6 +6,8 @@ import { ThreeDots } from 'react-loading-icons'
 
 import { SERVER } from '../config';
 
+const options = ["Requested", "Resolved", "Discarded"]
+
 function Selection2({ data }) {
     const [dropDown, setDropDown] = useState(null);
     const [message, setMessage] = useState('');
@@ -29,6 +31,7 @@ function Selection2({ data }) {
           .then((data)=>{
             if(data.success){
               setLoading(false)
+              data.unshift({message: message, id:2})
               setMessage('')
 
               setInterval(()=>{
@@ -57,26 +60,23 @@ function Selection2({ data }) {
                 <div className="sending">
                   <ThreeDots id="loading" stroke="whitesmoke" fill='#584082' speed={1.15}/>
                 </div>}
-                <h2>Submit Ticket</h2>
-                <textarea  className="text" placeholder="Write Request" value={message} onChange={(e)=>{setMessage(e.target.value)}} required></textarea>
-                <input className="ticket-btn" type="submit" value={'Send'} />
+              <h2>Submit Ticket</h2>
+              <textarea  className="text" placeholder="Write Request" value={message} onChange={(e)=>{setMessage(e.target.value)}} required></textarea>
+              <input className="ticket-btn" type="submit" value={'Send'} />
             </form>
             <div className="tickets">
-            {data !== null && data.length>0 ? (
-              <React.Fragment>
+              {data !== null && data.length>0 && (
+                <React.Fragment>
                   {data.map((ticket) => (
                       <Ticket key={ticket.id} id={ticket.id} user={ticket.user} message={ticket.message} status={ticket.status}
-                      dropDown={dropDown} setDropDown={setDropDown}/>
+                      dropDown={dropDown} setDropDown={setDropDown} statusOptions={options}/>
                   ))}
               </React.Fragment>
-            ):<h4  className="empty-text">No tickets</h4>}
-           </div>
-
-          {data === null &&
-            <div className="tickets">
-                <h1>Loading</h1>
-            </div>}
-        </div>
+              )}
+              {data !== null && data.length === 0 && <h4 className="empty-text">No tickets</h4>}
+              {data === null && <div className="empty-text"><ThreeDots stroke="whitesmoke" fill='#584082' speed={1.15}/></div>}
+            </div>
+          </div>
       </section>
     );
   }

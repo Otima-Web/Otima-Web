@@ -59,7 +59,7 @@
 
             & .dropdown, .hide-dropdown{
                 position: absolute;
-                padding-top: 40%;
+                padding-top: 30%;
                 padding-bottom:5px;
                 top: 0px;
                 left: 0px;
@@ -110,5 +110,7 @@
         padding: 1%;
         border-radius: 3px;
         color: white;
+        overflow: scroll;
+        height: 4em;
     }
 }

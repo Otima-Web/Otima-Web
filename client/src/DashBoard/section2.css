@@ -1,5 +1,6 @@
 #tickets{
     height: 100%;
+    width: 100%;
     
     & .notify-sent{
         position: absolute;
@@ -26,7 +27,7 @@
     }
 }
 
-#tickets .loaded{
+#tickets .loaded, .loading{
     display: flex;
     height: 100%;
     flex-direction:row;
@@ -52,6 +53,14 @@
 
         & .empty-text{
             width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+            & .icon-loading{
+                margin: auto;
+            }
         }
     }
 

@@ -410,12 +410,12 @@ app.get("/api/data-request", async (req, res) => {
     };
       
     }else if(category === 1){
-      formattedResult = requestedData
+      formattedResult = JSON.parse(requestedData.tickets)
 
     }else if(category === 2){      
       formattedResult = requestedData
     }
-
+    
     return res.json({success:true, info:formattedResult});
   });
 
@@ -447,6 +447,10 @@ app.post("/api/ticket-submition", async (req,res) =>{
       return res.json({success:false})
     }
 
+});
+
+app.put("api/update-ticket", async (req, res) =>{
+  sessionID = req.body.sessionID
 });
 
 app.listen(PORT, () => {
