@@ -1,5 +1,29 @@
 #tickets{
     height: 100%;
+    
+    & .notify-sent{
+        position: absolute;
+        width: 100%;
+        height: fit-content;
+        top: 0px;
+        left: 0px;
+        pointer-events: none;
+
+        & h2{
+            position: relative;
+            height: fit-content;
+            border-radius: 10px;
+            color: white;
+            width: fit-content;
+            font-size: 16px;
+            margin-block: 10px;
+            margin-inline:auto;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.547);
+            animation: ticket-submit 3s ease-in-out 0s 1 forwards;
+            z-index: 3;
+        }
+    }
 }
 
 #tickets .loaded{
@@ -14,6 +38,7 @@
     & .tickets{
         display: flex;
         flex-direction: column;
+        height: 60vh;
         align-items:flex-start;
         justify-content: flex-start;
         position: relative;
@@ -21,9 +46,13 @@
         box-shadow: 0 0 15px -7px rgb(67, 11, 104);
         border-radius: 5px;
         padding: 2%;
-        gap: 2%;
+        gap: 15px;
         width: 70%;
         overflow-y: scroll;
+
+        & .empty-text{
+            width: 100%;
+        }
     }
 
     & .new-ticket{
@@ -31,10 +60,26 @@
         width: 18%;
         display: flex;
         flex-direction: column;
+        position: relative;
         gap: 10px;
         background-color: white;
         padding: 1%;
         height: fit-content;
+
+        & .sending{
+            position: absolute;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.46);
+            align-items: center;
+            justify-content: center;
+
+            & #loading{
+                margin-top: 50%;
+            }
+        }
 
         & h2{
             margin-block:0px;
@@ -70,5 +115,20 @@
                 background-color: rgba(86, 18, 132, 0.85);
             }
         }
+    }
+}
+
+@keyframes ticket-submit {
+    0%{
+        top: -100%;
+    }
+    20%{
+        top: 0%;
+    }
+    80%{
+        top: 0%;
+    }
+    100%{
+        top: -100%;
     }
 }

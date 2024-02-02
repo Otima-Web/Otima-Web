@@ -203,6 +203,7 @@
     font-weight: 600;
     transition: 200ms;
     animation: drop-in 1s ease 3s 1 forwards;
+    z-index: 3;
 
     & p{
         margin: 0px;
